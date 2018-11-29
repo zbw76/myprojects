@@ -1,0 +1,48 @@
+<!doctype html>
+<head>
+    <link href="jqueryui/jquery-ui.css" rel="stylesheet">
+    <script src="jqueryui/external/jquery/jquery.js"></script>
+    <script src="jqueryui/jquery-ui.js"></script>
+</head>
+<html><body>
+转账地址：<input type=text size=18>
+<br>
+转账金额：<input type=text size=18>
+<br>
+<input type=button value="转   账" onClick="alert('余额不足');">
+<br>
+<input type=button value="测试调用" onClick="alert(nativejs.testjs());">
+<br>
+<input type=button value="钱包地址" onClick="alert(nativejs.getRecAdd());">
+<br>
+<input type=button value="测试对话框" onClick="showTest();">
+
+<div id="dialog" title="提示">
+这是对话框
+</div>
+</body></html>
+
+<script language="JavaScript">
+
+$( "#dialog" ).dialog({
+	autoOpen: false,
+	width: 240,
+	buttons: [
+		{
+			text: "关  闭",
+			click: function() {
+				$( this ).dialog( "close" );
+			}
+		}
+	]
+});
+
+function showTest() {
+    //var msg = nativejs.testjs();
+    //document.getElementById("dialog").innerHTML = msg;
+	//$( "#dialog" ).dialog( "open" );
+	//event.preventDefault();
+
+	nativejs.alert('提示对话框', '我是提示内容。');
+}
+</script>

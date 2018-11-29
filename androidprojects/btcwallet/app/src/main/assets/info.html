@@ -1,0 +1,36 @@
+<html><body>
+<table width=100% border=0 cellpadding=0 cellspacing=0>
+    <tr>
+        <td width=100% id="info"></td>
+    </tr>
+</table>
+<br>
+    <table width=100% border=1 cellpadding=0 cellspacing=0>
+        <tr>
+            <td width=20%>from</td>
+            <td width=20%>to</td>
+            <td width=20%>交易金额</td>
+            <td width=20%>时间</td>
+            <td width=20%>hash</td>
+        </tr>
+    </table>
+    <br>
+    连接列表：<br>
+<table width=100% border=0 cellpadding=0 cellspacing=0>
+    <tr>
+        <td width=100% id="connlist"></td>
+    </tr>
+</table>
+</body></html>
+<script language="JavaScript">
+    var infostr = nativejs.walletInfo();
+    document.getElementById("info").innerHTML = infostr;
+
+    //更新链接列表
+    function updateConnList() {
+        var connstr = nativejs.connList();
+        document.getElementById("connlist").innerHTML = connstr;
+    }
+
+    setInterval(updateConnList, 1000);
+</script>
